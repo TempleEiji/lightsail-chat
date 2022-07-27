@@ -11,5 +11,5 @@ const App: React.FC = () => {
   );
 };
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById("app");
 render(<App />, rootElement);
