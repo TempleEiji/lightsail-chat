@@ -10,4 +10,8 @@
         <div id="app"></div>
     </body>
     <script src="{{ mix('/js/index.js') }}"></script>
+    <script
+      src="https://kit.fontawesome.com/b1dfec1069.js"
+      crossorigin="anonymous"
+    ></script>
 </html>

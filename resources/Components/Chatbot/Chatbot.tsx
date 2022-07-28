@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Chats from "../Chats/Chats";
 import { analyzeNextSteps } from "../../HelperFunctions/analyzeNextSteps";
+
 import "./Chatbot.scss";
+
+const baseURL = "http://18.183.194.58/api/question";
 
 interface ResponseBotObject {
   purpose: string;
@@ -46,6 +50,14 @@ const Chatbot: React.FC = () => {
     setNextStep(userResponse);
   };
 
+  const [post, setPost] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setPost(response.data);
+    });
+  }, []);
+
   return (
     <div className="chat-container">
       <Chats
@@ -54,6 +66,7 @@ const Chatbot: React.FC = () => {
         sendUserResponse={sendUserResponse}
         optionClick={optionClick}
       />
+      {JSON.stringify(post)}
       <form onSubmit={e => handleSubmit(e)} className="form-container">
         <input
           onChange={e => handleInputChange(e)}
