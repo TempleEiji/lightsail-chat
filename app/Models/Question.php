@@ -9,5 +9,12 @@ class Question extends Model
 {
     use HasFactory;
     protected $table = 'question';
-    protected $fillable = ['id', 'type', 'contents'];
+    protected $fillable = [
+        'step', 
+        'msg', 
+        'beforemsg', 
+        'aftermsg', 
+        'sender', 
+        'options'
+    ];
 }

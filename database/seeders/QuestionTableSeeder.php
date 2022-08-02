@@ -18,81 +18,88 @@ class QuestionTableSeeder extends Seeder
     DB::table("question")->insert(
       [
         [
-          'qid'=> 1,
-          'type'=> 2,
-          'contents'=> '{
+          'step'=> 1,
+          'msg'=> 'お住まいはどの地域ですか',
+          'beforemsg'=> 'こんにちは、およそ３~5分ほどで質問がありますので、ご回答お願いします',
+          'aftermsg'=> '選択肢してください',
+          'sender' => 'bot',
+          'options'=> '{
             "data":[
                 {
-                  "name": "関西",
-                  "value": 1
+                  "step": 2,
+                  "text": "北海道",
+                  "img": "",
+                  "list": []
                 },
                 {
-                  "name": "関東",
-                  "value": 2
+                  "step": 2,
+                  "text": "関東",
+                  "img": "",
+                  "list": []
                 },
                 {
-                  "name": "東海",
-                  "value": 3
+                  "step": 2,
+                  "text": "関西",
+                  "img": "",
+                  "list": []
                 }
             ]
           }'
         ],
         [
-          'qid'=> 2,
-          'type'=> 2,
-          'contents'=> '{
+          'step'=> 2,
+          'msg'=> 'お住まいはどの都道府県をお選び下さい',
+          'beforemsg'=> 'こんにちは、およそ３~5分ほどで質問がありますので、ご回答お願いします',
+          'aftermsg'=> '選択肢してください',
+          'sender' => 'bot',
+          'options'=> '{
             "data":[
                 {
-                  "name": "東京",
-                  "value": 1
+                  "step": 2,
+                  "text": "東京",
+                  "img": "",
+                  "list": []
                 },
                 {
-                  "name": "神奈川",
-                  "value": 2
+                  "step": 2,
+                  "text": "神奈川",
+                  "img": "",
+                  "list": []
                 },
                 {
-                  "name": "千葉",
-                  "value": 3
+                  "step": 2,
+                  "text": "千葉",
+                  "img": "",
+                  "list": []
                 }
             ]
           }'
         ],
         [
-          'qid'=> 3,
-          'type'=> 2,
-          'contents'=> '{
+          'step'=> 3,
+          'msg'=> 'お住まいはどの都道府県をお選び下さい',
+          'beforemsg'=> 'こんにちは、およそ３~5分ほどで質問がありますので、ご回答お願いします',
+          'aftermsg'=> '選択肢してください',
+          'sender' => 'bot',
+          'options'=> '{
             "data":[
                 {
-                  "name": "船橋",
-                  "value": 1
+                  "step": 2,
+                  "text": "東京",
+                  "img": "",
+                  "list": []
                 },
                 {
-                  "name": "松戸",
-                  "value": 2
+                  "step": 2,
+                  "text": "神奈川",
+                  "img": "",
+                  "list": []
                 },
                 {
-                  "name": "柏",
-                  "value": 3
-                }
-            ]
-          }'
-        ],
-        [
-          'qid'=> 4,
-          'type'=> 3,
-          'contents'=> '{
-            "data":[
-                {
-                  "name": "我孫子市",
-                  "value": 1
-                },
-                {
-                  "name": "船橋市",
-                  "value": 2
-                },
-                {
-                  "name": "鎌ヶ谷市",
-                  "value": 3
+                  "step": 2,
+                  "text": "千葉",
+                  "img": "",
+                  "list": []
                 }
             ]
           }'
