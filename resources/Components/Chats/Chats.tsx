@@ -1,18 +1,18 @@
 // import React, { useState, useEffect, useRef } from "react";
 import React, { useRef } from "react";
-import { QuestionRes,Options } from "../Chatbot/question";
+import { QuestionRes, Options } from "../Chatbot/question";
 import "./Chats.scss";
 
 interface Props {
   // apiQuestion: QuestionRes;
-  userResponse: string;
+  dispMsg: QuestionRes;
   // botResponse: {
   //   purpose: string;
   //   message: string;
   //   options?: string[];
   //   sender: string;
   // };
-  botResponse: QuestionRes[]
+  // botResponse: QuestionRes[]
   sendUserResponse: string;
   optionClick: (ev: React.MouseEvent<HTMLElement>) => void;
 }
@@ -70,17 +70,16 @@ const Chats: React.FC<Props> = props => {
       <section className="msger">
         <main className="msger-chat">
         
-           {props.botResponse.map(
-            (_:QuestionRes) => 
+           {/* {props.dispMsg.map(
+            (_:QuestionRes) =>  */}
             <>
-              <div key={_.msg} className="msg">
-                <div className={`msg-wrapper ${_.sender}`}>
-                  {_.step}
-                  {_.msg}
-                  {_.aftermsg}
-                  {_.beforemsg}
-
-                  {/* {_.options.map((op:Options) => (
+              <div key={props.dispMsg.msg} className="msg">
+                <div className={`msg-wrapper ${props.dispMsg.sender}`}>
+                  {props.dispMsg.step}
+                  {props.dispMsg.msg}
+                  {props.dispMsg.aftermsg}
+                  {props.dispMsg.beforemsg}
+                  {props.dispMsg.options?.map((op:Options) => (
                     <p
                       onClick={e => props.optionClick(e)}
                       data-id={op.step}
@@ -88,12 +87,12 @@ const Chats: React.FC<Props> = props => {
                     >
                       {op.text}
                     </p>
-                  ))} */}
+                  ))}
                 </div>
               </div>
             </>
-           )
-           }
+           {/* )
+           } */}
         </main>
       </section>
     </div>

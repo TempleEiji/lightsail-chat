@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Chats from "../Chats/Chats";
-import { analyzeNextSteps } from "../../HelperFunctions/analyzeNextSteps";
-import { QuestionRes, Options } from "./question";
+// import { analyzeNextSteps } from "../../HelperFunctions/analyzeNextSteps";
+import { QuestionRes } from "./question";
 
 import "./Chatbot.scss";
 
@@ -24,23 +24,37 @@ const Chatbot: React.FC = () => {
   //   message: "",
   //   sender: "bot"
   // });
+   const [dispMsg, setDispMsg] = useState<QuestionRes>({
+    step: 1,
+    msg: "",
+    beforemsg: "",
+    aftermsg: "",
+    options: [],
+    sender: ""
+   });
+
    const [botResponse, setBotResponse] = useState<QuestionRes[]>([{
     step: 1,
     msg: "",
     beforemsg: "",
     aftermsg: "",
-    options: [] as Options,
+    options: [],
     sender: ""
   }]);
 
   const [sendUserResponse, setSendUserResponse] = useState<string>("");
 
+  const choiceStep = (step: string) => {
+    const res = botResponse.filter((_) => _.step === parseInt(step));
+    setDispMsg(res[0]);
+  };
+
   // setting next step when there's response and option click
   const setNextStep = (response: string) => {
     setStep(prevState => prevState + 1);
     setSendUserResponse(response);
-    const res = analyzeNextSteps(step, response);
-    setBotResponse({ ...res, sender: "bot" });
+    // const res = analyzeNextSteps(response);
+    choiceStep(response)
     setUserResponse("");
   };
 
@@ -63,19 +77,20 @@ const Chatbot: React.FC = () => {
   };
 
   // const [post, setPost] = React.useState(null);
-
+  // APIから取得した値をセット 1問目だけセット
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
       setBotResponse(response.data);
-      console.log(response.data);
+      const initialData = response.data.filter((_: QuestionRes) => _.step === 1);
+      setDispMsg(initialData);
     });
   }, []);
 
   return (
     <div className="chat-container">
       <Chats
-        userResponse={userResponse}
-        botResponse={botResponse}
+        dispMsg={dispMsg}
+        // botResponse={botResponse}
         sendUserResponse={sendUserResponse}
         optionClick={optionClick}
       />

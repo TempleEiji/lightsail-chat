@@ -3,9 +3,12 @@ export type QuestionRes = {
     msg: string
     beforemsg: string
     aftermsg: string
-    // eslint-disable-next-line no-use-before-define
-    options: Options[]
+    options: any
     sender: string
+}
+
+export type OptionsData = {
+    data: Options
 }
 
 export type Options = {

@@ -23,11 +23,7 @@ class QuestionTableSeeder extends Seeder
           'beforemsg'=> 'こんにちは、およそ３~5分ほどで質問がありますので、ご回答お願いします',
           'aftermsg'=> '選択肢してください',
           'sender' => 'bot',
-          'options'=> collect([
-            ['step'=> 1,'text'=> '北海道','img'=> '','list'=> []],
-            ['step'=> 2,'text'=> '関東','img'=> '','list'=> []],
-            ['step'=> 3,'text'=> '関西','img'=> '','list'=> []]
-          ])
+          'options'=> '[{"step":2,"text":"北海道","img":"","list":[]},{"step":2,"text":"関東","img":"","list":[]},{"step":2,"text":"関西","img":"","list":[]}]'
         ],
         [
           'step'=> 2,
@@ -35,11 +31,7 @@ class QuestionTableSeeder extends Seeder
           'beforemsg'=> '',
           'aftermsg'=> '',
           'sender' => 'bot',
-          'options'=> collect([
-            ['step'=> 1,'text'=> '北海道','img'=> '','list'=> []],
-            ['step'=> 2,'text'=> '関東','img'=> '','list'=> []],
-            ['step'=> 3,'text'=> '関西','img'=> '','list'=> []]
-          ])
+          'options'=> '[{"step":2,"text":"北海道","img":"","list":[]},{"step":2,"text":"関東","img":"","list":[]},{"step":2,"text":"関西","img":"","list":[]}]'
         ],
         [
           'step'=> 3,
@@ -47,11 +39,7 @@ class QuestionTableSeeder extends Seeder
           'beforemsg'=> '',
           'aftermsg'=> '',
           'sender' => 'bot',
-          'options'=> collect([
-            ['step'=> 1,'text'=> '北海道','img'=> '','list'=> []],
-            ['step'=> 2,'text'=> '関東','img'=> '','list'=> []],
-            ['step'=> 3,'text'=> '関西','img'=> '','list'=> []]
-          ])
+          'options'=> '[{"step":2,"text":"北海道","img":"","list":[]},{"step":2,"text":"関東","img":"","list":[]},{"step":2,"text":"関西","img":"","list":[]}]'
         ],
         ]
       );
